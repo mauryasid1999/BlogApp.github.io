@@ -3,30 +3,35 @@
 
 
 {% block content %}
+{% include 'main/navbar.html' %}
 
-<h1>create new Article</h1>
+<h1 class="center-align">Create New Article</h1>
 
-{% if success %}
-<p>form submitted successful </p>
-{% endif %}
 
+
+<div class="container">
 <form method="POST">
     {% csrf_token %}
 
-<input type="text" name="title" placeholder="title"/>
-<textarea name="content" placeholder="content"></textarea>
+<input type="text" name="title" placeholder="title" required/>
+<textarea name="content" placeholder="content" required></textarea>
+<br>
+<div class="input-field col s12">
 <select name="author">
-
 {% for author in authors %}
+
 <option value="{{author.id}}">{{author.name}}</option>
 
 {% endfor %}
 </select>
+</div>
+
+
 
 <button type="submit">Submit</button>
 <button type="reset">Reset</button>
 </form>
-
+</div>
 
 
 {% endblock %}
