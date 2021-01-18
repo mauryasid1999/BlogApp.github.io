@@ -4,17 +4,25 @@
 
 {% block content %}
 
+{% include 'main/navbar.html' %}
 
-<h1>welcome to Blog Application</h1>
-<h5>Top 10 articles</h5>
+<div class="container">
+<h1 class="center-align">Welcome to Blog Application</h1>
+<h5 class="center-align">Top 10 articles</h5>
 
+</div>
 <ul>
+    <div class="collection">
 {% for article in latest_articles %}
 
-<li>
-    <a href="{% url 'get_article' article.id %}">{{article}}</a></li>
+    <a href="{% url 'get_article' article.id %}" class="collection-item ">{{article}}</a>
+    
+   
+ 
+
 
 {% endfor %}
+</div>
 
 </ul>
 
